@@ -1,0 +1,112 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.upper-wrapper-top {
+  flex-direction: row;
+  display: flex;
+  width: 100%;
+  height: 930px;
+}
+
+.banner-left {
+  width: 55%;
+  height: 930px;
+  background-color: rgb(255, 255, 255);
+}
+
+.twitter-banner {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.login-signup-wrapper-right {
+  flex-direction: column;
+  display: flex;
+
+  margin-left: 40px;
+}
+
+.big-heading {
+  font-family: "Poppins", sans-serif;
+  font-size: 55px;
+  font-weight: 900;
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
+.sub-heading {
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+.twitter-logo {
+  width: 50px;
+  margin-top: 150px;
+}
+
+.google-button {
+  cursor: pointer;
+  width: 300px;
+  height: 40px;
+  border-radius: 100px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #bfbfbf;
+  background-color: white;
+  margin-bottom: 15px;
+}
+
+.google-logo {
+  width: 23px;
+  float: right;
+  margin-top: -1px;
+  margin-right: 10px;
+}
+
+.facebook-button {
+  cursor: pointer;
+  width: 300px;
+  height: 40px;
+  border-radius: 100px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #bfbfbf;
+  background-color: white;
+  margin-bottom: 5px;
+}
+
+.facebook-logo {
+  width: 23px;
+  float: right;
+  margin-top: -1px;
+  margin-right: 10px;
+}
+
+.facebook-button:hover {
+  background-color: #f5f5f5;
+}
+
+.google-button:hover {
+  background-color: #f5f5f5;
+}
+
+.or {
+  width: 300px;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  color: rgb(41, 41, 41);
+  font-weight: 500;
+}
+
+.already-heading {
+  font-size: 15px;
+  margin-top: 50px;
+}

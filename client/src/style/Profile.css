@@ -1,0 +1,105 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.profile-wrapper {
+  width: 100%;
+  min-height: 1000px;
+  display: flex;
+  flex-direction: row;
+}
+
+.profile-twitter-logo {
+  width: 30px;
+  margin-top: 40px;
+}
+
+.profile-nav-items {
+  font-size: 19px;
+  font-weight: 500;
+  margin-top: 25px;
+  list-style: none;
+}
+.profile-nav-items li {
+  margin-top: 20px;
+}
+
+.posts-middle {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: rgb(239, 239, 239);
+  border-width: 1px;
+  flex: 2.5;
+  height: 100%;
+  align-items: center;
+  padding-bottom: 50px;
+  background-color: white;
+}
+
+.sidemenu-left {
+  border-style: solid;
+  border-color: rgb(239, 239, 239);
+  border-width: 1px;
+  display: flex;
+  flex-direction: row;
+  min-height: 1000px;
+  flex: 1;
+  background-color: white;
+}
+
+.news-right {
+  border-style: solid;
+  border-color: rgb(239, 239, 239);
+  border-width: 1px;
+  flex: 1;
+  height: 100%;
+  background-color: white;
+}
+
+.icons {
+  color: black;
+  width: 23px;
+  height: 23px;
+  margin-right: 10px;
+  margin-bottom: -4px;
+}
+
+.nav-area-right {
+  padding-right: 50px;
+
+  flex: 1;
+}
+
+.nav-area-white-space-left {
+  flex: 2;
+}
+
+.update-details-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 60px;
+  margin-left: 50px;
+  margin-right: 50px;
+}
+
+.bio-input,
+.country-input {
+  font-size: 15px;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 300px;
+  height: 50px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #bfbfbf;
+  border-width: 1px;
+}
+
+.profile-main-heading {
+  margin-bottom: 50px;
+}
