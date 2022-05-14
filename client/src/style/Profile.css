@@ -34,7 +34,7 @@
   border-color: rgb(239, 239, 239);
   border-width: 1px;
   flex: 2.5;
-  height: 100%;
+  min-height: 1000px;
   align-items: center;
   padding-bottom: 50px;
   background-color: white;

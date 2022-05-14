@@ -96,10 +96,12 @@ export const Tweeting = () => {
           ></img>
           <div>
             <ul className="profile-nav-items">
-              <li>
-                <AiOutlineHome className="icons" />
-                Home
-              </li>
+              <Link to="/dashboard">
+                <li>
+                  <AiOutlineHome className="icons" />
+                  Home
+                </li>
+              </Link>
               <li>
                 <AiOutlineCompass className="icons" />
                 Explore
@@ -168,7 +170,7 @@ export const Tweeting = () => {
           </form>
         </div>
 
-        {yourtweets.reverse().map((tweetmap, index) => {
+        {yourtweets.map((tweetmap, index) => {
           const tweetDate = date[index].split("T")[0];
 
           return (
