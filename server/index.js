@@ -50,21 +50,46 @@ const io = new Server(httpServer, {
   },
 });
 
-// io.on("connection", (socket) => {
-//   console.log(`some one with id ${socket.id} has connected`);
+let socketusers = [];
 
-//   socket.on("join_room", (data) => {
-//     console.log(data);
+const addUser = (username, socketId) => {
+  !socketusers.some((items) => items.username === username) &&
+    socketusers.push({ username, socketId });
+};
 
-//     socket.join(data);
-//   });
+const removeUser = (socketId) => {
+  socketusers = socketusers.filter((items) => {
+    items.socketId !== socketId;
+  });
+};
 
-//   socket.on("message", (data) => {
-//     console.log(data);
+const getUser = (username) => {
+  return socketusers.find((item) => item.username === username);
+};
 
-//     socket.to(data.room).emit("receive_message", data);
-//   });
-// });
+io.on("connection", (socket) => {
+  console.log(`some one with id ${socket.id} has connected`);
+
+  socket.on("addUser", (username) => {
+    addUser(username, socket.id);
+    io.emit("getUsers", socketusers);
+  });
+
+  socket.on("sendMessage", ({ senderUsername, receiverUsername, text }) => {
+    const user = getUser(receiverUsername);
+
+    io.to(user.socketId).emit("getMessage", {
+      senderUsername,
+      text,
+    });
+  });
+
+  socket.on("disconnect", (socket) => {
+    console.log(`some one with id ${socket.id} has disconnect`);
+    removeUser(socket.id);
+    io.emit("getUsers", socketusers);
+  });
+});
 
 //PORT LISTEN
 PORT = process.env.PORT_NO || 5000;
