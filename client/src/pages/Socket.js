@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-//import { io } from "socket.io-client";
+import { io } from "socket.io-client";
 import { Button, TextField } from "@mui/material/";
 import { Conversation } from "../components/Conversation";
 import { Message } from "../components/Message";
@@ -7,7 +7,7 @@ import axios from "axios";
 
 import("../style/Socket.css");
 
-//const socket = io.connect("http://localhost:5000");
+const socket = io.connect("http://localhost:5000");
 
 export const Socket = () => {
   const username = localStorage.getItem("username");
@@ -16,6 +16,16 @@ export const Socket = () => {
   const [currentChat, setCurrentChat] = useState([]);
   const [allMessages, setAllMessages] = useState([]);
   const [newMessages, setNewMessages] = useState([]);
+
+  console.log(currentChat);
+
+  useEffect(() => {
+    socket.emit("addUser", username);
+
+    socket.on("getUsers", (allusers) => {
+      console.log(allusers);
+    });
+  }, [username]);
 
   useEffect(() => {
     axios
@@ -39,11 +49,22 @@ export const Socket = () => {
       });
   }, [currentChat]);
 
-  const handelSubmit = () => {
+  const handelSubmit = (e) => {
+    e.preventDefault();
+
+    if (!currentChat._id) {
+      return;
+    }
+
+  
     axios
-      .post(`http://localhost:5000/messages`)
+      .post(`http://localhost:5000/messages`, {
+        sender: username,
+        text: newMessages,
+        conversationId: currentChat._id,
+      })
       .then((result) => {
-        console.log(result);
+        setAllMessages([...allMessages, result.data]);
       })
       .catch((err) => {
         console.log(err);

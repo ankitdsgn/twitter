@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { update } from "../redux/userSlice";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useSelector, useDispatch } from "react-redux";
 import { WhiteButton, ButtonDark } from "../components/Button.style";
 //images import------------------------------------------
 import twitterlogo from "../images/twitter-logo.png";
@@ -13,8 +15,14 @@ export const Login = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  useSelector((state) => state.user.username);
+
+  const dispath = useDispatch();
+
   const handelSubmit = (e) => {
     e.preventDefault();
+
+    dispath(update({ username }));
 
     axios
       .post(
